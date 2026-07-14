@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight, Calendar, AlertTriangle, FileText, Database, ShieldAlert, MonitorSmartphone } from 'lucide-react';
+import { ChevronRight, Calendar, AlertTriangle, FileText, Database, ShieldAlert, MonitorSmartphone, MessageCircle, Maximize } from 'lucide-react';
+import StatCounter from '@/components/StatCounter';
 
 const FALLBACK_IMAGE = "https://picsum.photos/seed/banjarnegara-fallback/800/600";
 
@@ -75,6 +76,41 @@ export default function Home() {
                 Berita Terbaru
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 1.5. Statistik Daerah */}
+      <StatCounter />
+
+      {/* 1.75. Akses Cepat Layanan Publik */}
+      <section className="py-16 bg-slate-100">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Akses Cepat Layanan Publik</h2>
+            <p className="text-slate-500 max-w-2xl mx-auto">Portal layanan terintegrasi untuk memudahkan masyarakat mengakses informasi dan layanan pemerintah secara cepat dan transparan.</p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
+            {[
+              { title: 'LAPOR!', desc: 'Aspirasi & Pengaduan', icon: MessageCircle, color: 'text-red-500', bg: 'bg-red-50' },
+              { title: 'PPID', desc: 'Informasi Publik', icon: MonitorSmartphone, color: 'text-emerald-500', bg: 'bg-emerald-50' },
+              { title: 'Open Data', desc: 'Portal Data Terpadu', icon: Database, color: 'text-blue-500', bg: 'bg-blue-50' },
+              { title: 'LPSE', desc: 'Pengadaan Elektronik', icon: FileText, color: 'text-amber-500', bg: 'bg-amber-50' },
+              { title: 'JDIH', desc: 'Dokumentasi Hukum', icon: ShieldAlert, color: 'text-indigo-500', bg: 'bg-indigo-50' },
+              { title: 'Satu Data', desc: 'Integrasi Data Daerah', icon: Maximize, color: 'text-purple-500', bg: 'bg-purple-50' },
+            ].map((srv, i) => {
+              const Icon = srv.icon;
+              return (
+                <Link key={i} href="#" className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group flex flex-col items-center text-center">
+                  <div className={`w-14 h-14 ${srv.bg} ${srv.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-bold text-slate-800 text-base mb-1 group-hover:text-primary-600 transition-colors">{srv.title}</h3>
+                  <p className="text-slate-500 text-xs line-clamp-2">{srv.desc}</p>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>

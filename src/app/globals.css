@@ -16,6 +16,18 @@
   }
 }
 
+.high-contrast {
+  filter: grayscale(100%) contrast(150%) !important;
+  background-color: white !important;
+  color: black !important;
+}
+
+.high-contrast img, 
+.high-contrast video, 
+.high-contrast [style*="background-image"] {
+  filter: grayscale(100%) contrast(80%) brightness(120%) !important;
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-start-rgb));

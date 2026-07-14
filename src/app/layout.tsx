@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import FloatingWidget from "@/components/FloatingWidget";
+import AccessibilityWidget from "@/components/AccessibilityWidget";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         <Footer />
         {/* FIX: Widget melayang dibuat collapsible (Point C.9) */}
         <FloatingWidget />
+        <AccessibilityWidget />
       </body>
     </html>
   );

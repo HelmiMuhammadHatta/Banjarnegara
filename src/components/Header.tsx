@@ -226,7 +226,23 @@ const MobileSubMenuItem = ({ item, closeMenu }: { item: SubmenuItem & { submenu?
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [showSearchResults, setShowSearchResults] = useState(false);
   const pathname = usePathname();
+
+  const SEARCH_DATA = [
+    { title: "Pj Bupati Banjarnegara Buka Festival Budaya Dieng 2024", type: "Berita", href: "/berita/festival-dieng" },
+    { title: "Pemkab Salurkan Bantuan Air Bersih ke 5 Kecamatan Terdampak Kemarau", type: "Berita", href: "/berita/bantuan-air" },
+    { title: "Penghargaan Kabupaten Layak Anak Tingkat Madya Diraih Banjarnegara", type: "Prestasi", href: "/berita/layak-anak" },
+    { title: "Perbaikan Jalan Penghubung Antar Desa Selesai Tepat Waktu", type: "Infrastruktur", href: "/berita/perbaikan-jalan" },
+    { title: "Seleksi Penerimaan CPNS dan PPPK Kabupaten Banjarnegara Tahun 2024", type: "Pengumuman", href: "/pengumuman/cpns-2024" },
+    { title: "Jadwal Pemadaman Listrik Area Banjarnegara", type: "Layanan", href: "/layanan/listrik" },
+  ];
+
+  const searchResults = SEARCH_DATA.filter(item => 
+    item.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+    item.type.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -293,12 +309,41 @@ export default function Header() {
               ))}
             </ul>
             <div className="relative ml-4">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 z-10" />
               <input 
                 type="text" 
                 placeholder="Cari..." 
-                className="pl-9 pr-4 py-2 rounded-full bg-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 w-48 transition-all focus:bg-white focus:shadow-sm"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setShowSearchResults(true);
+                }}
+                onFocus={() => setShowSearchResults(true)}
+                onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
+                className="pl-9 pr-4 py-2 rounded-full bg-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 w-48 focus:w-64 transition-all focus:bg-white focus:shadow-sm relative z-10"
               />
+              {/* Dropdown Hasil Pencarian Desktop */}
+              {showSearchResults && searchQuery.length > 0 && (
+                <div className="absolute top-full mt-2 right-0 w-80 bg-white rounded-xl shadow-xl border border-slate-100 p-2 z-50 animate-in fade-in slide-in-from-top-2">
+                  {searchResults.length > 0 ? (
+                    <ul className="flex flex-col gap-1 max-h-[300px] overflow-y-auto">
+                      {searchResults.map((res, i) => (
+                        <li key={i}>
+                          <Link href={res.href} className="block p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                            <span className="text-xs font-bold text-primary-600 mb-1 block">{res.type}</span>
+                            <span className="text-sm text-slate-800 line-clamp-2 leading-tight">{res.title}</span>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="p-4 text-center">
+                      <p className="text-sm text-slate-600">Tidak ditemukan hasil untuk <br/><b className="text-slate-800">&quot;{searchQuery}&quot;</b></p>
+                      <p className="text-xs text-slate-400 mt-2">Saran: Coba kata kunci &apos;Bupati&apos;, &apos;CPNS&apos;, atau &apos;Jalan&apos;</p>
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </nav>
 
@@ -326,13 +371,41 @@ export default function Header() {
         }`}
       >
         <div className="p-4 overflow-y-auto">
-          <div className="relative w-full mb-6">
+          <div className="relative w-full mb-6 z-10">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input 
               type="text" 
               placeholder="Cari informasi..." 
+              value={searchQuery}
+              onChange={(e) => {
+                setSearchQuery(e.target.value);
+                setShowSearchResults(true);
+              }}
+              onFocus={() => setShowSearchResults(true)}
+              onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
               className="w-full pl-9 pr-4 py-3 rounded-lg bg-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-white"
             />
+            {/* Dropdown Hasil Pencarian Mobile */}
+            {showSearchResults && searchQuery.length > 0 && (
+              <div className="absolute top-full mt-2 left-0 w-full bg-white rounded-xl shadow-lg border border-slate-100 p-2 z-50 animate-in fade-in slide-in-from-top-2">
+                {searchResults.length > 0 ? (
+                  <ul className="flex flex-col gap-1 max-h-[250px] overflow-y-auto">
+                    {searchResults.map((res, i) => (
+                      <li key={i}>
+                        <Link href={res.href} className="block p-3 rounded-lg hover:bg-slate-50 transition-colors">
+                          <span className="text-xs font-bold text-primary-600 mb-1 block">{res.type}</span>
+                          <span className="text-sm text-slate-800 line-clamp-2 leading-tight">{res.title}</span>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <div className="p-4 text-center">
+                    <p className="text-sm text-slate-600">Tidak ditemukan hasil untuk <b className="text-slate-800">&quot;{searchQuery}&quot;</b></p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
           <div className="flex flex-col pb-10">
             {navLinks.map((link) => (
