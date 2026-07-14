@@ -94,11 +94,11 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
             {[
               { title: 'LAPOR!', desc: 'Aspirasi & Pengaduan', href: 'https://lapor.go.id', icon: MessageCircle, color: 'text-red-500', bg: 'bg-red-50' },
-              { title: 'PPID', desc: 'Informasi Publik', href: '/pustaka-data/ppid', icon: MonitorSmartphone, color: 'text-emerald-500', bg: 'bg-emerald-50' },
-              { title: 'Open Data', desc: 'Portal Data Terpadu', href: '/pustaka-data/open-data', icon: Database, color: 'text-blue-500', bg: 'bg-blue-50' },
+              { title: 'PPID', desc: 'Informasi Publik', href: 'https://ppid.banjarnegarakab.go.id/', icon: MonitorSmartphone, color: 'text-emerald-500', bg: 'bg-emerald-50' },
+              { title: 'Open Data', desc: 'Portal Data Terpadu', href: 'https://opendata.banjarnegarakab.go.id/', icon: Database, color: 'text-blue-500', bg: 'bg-blue-50' },
               { title: 'LPSE', desc: 'Pengadaan Elektronik', href: '/pustaka-data/lpse', icon: FileText, color: 'text-amber-500', bg: 'bg-amber-50' },
-              { title: 'JDIH', desc: 'Dokumentasi Hukum', href: '/pustaka-data/jdih', icon: ShieldAlert, color: 'text-indigo-500', bg: 'bg-indigo-50' },
-              { title: 'Satu Data', desc: 'Integrasi Data Daerah', href: '/pustaka-data/satu-data', icon: Maximize, color: 'text-purple-500', bg: 'bg-purple-50' },
+              { title: 'JDIH', desc: 'Dokumentasi Hukum', href: 'https://jdih.banjarnegarakab.go.id/', icon: ShieldAlert, color: 'text-indigo-500', bg: 'bg-indigo-50' },
+              { title: 'Satu Data', desc: 'Integrasi Data Daerah', href: 'https://satudata.banjarnegarakab.go.id/', icon: Maximize, color: 'text-purple-500', bg: 'bg-purple-50' },
             ].map((srv, i) => {
               const Icon = srv.icon;
               return (
@@ -208,7 +208,7 @@ export default function Home() {
             <div>
               <h2 className="text-2xl font-bold text-slate-800 mb-6">Layanan Publik</h2>
               <div className="grid grid-cols-1 gap-4">
-                <Link href="/pustaka-data/open-data" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-primary-500 hover:shadow-md transition-all group">
+                <Link href="https://opendata.banjarnegarakab.go.id/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-primary-500 hover:shadow-md transition-all group">
                   <div className="w-12 h-12 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-colors">
                     <Database className="w-6 h-6" />
                   </div>
@@ -217,7 +217,7 @@ export default function Home() {
                     <p className="text-xs text-slate-500">Portal Data Terpadu Banjarnegara</p>
                   </div>
                 </Link>
-                <Link href="/pustaka-data/ppid" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-500 hover:shadow-md transition-all group">
+                <Link href="https://ppid.banjarnegarakab.go.id/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-500 hover:shadow-md transition-all group">
                   <div className="w-12 h-12 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                     <MonitorSmartphone className="w-6 h-6" />
                   </div>

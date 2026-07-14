@@ -69,10 +69,10 @@ const navLinks: MenuItem[] = [
   {
     name: 'Pustaka Data', href: '/pustaka-data',
     submenu: [
-      { name: 'JDIH', href: '/pustaka-data/jdih' },
-      { name: 'Open Data', href: '/pustaka-data/open-data' },
-      { name: 'PPID', href: '/pustaka-data/ppid' },
-      { name: 'Satu Data', href: '/pustaka-data/satu-data' }
+      { name: 'JDIH', href: 'https://jdih.banjarnegarakab.go.id/' },
+      { name: 'Open Data', href: 'https://opendata.banjarnegarakab.go.id/' },
+      { name: 'PPID', href: 'https://ppid.banjarnegarakab.go.id/' },
+      { name: 'Satu Data', href: 'https://satudata.banjarnegarakab.go.id/' }
     ]
   },
 ];
