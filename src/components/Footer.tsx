@@ -28,25 +28,28 @@ export default function Footer() {
           {/* Dinas */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Dinas & Badan</h4>
-            {/* FIX: Link Penting dibuat konsisten grid card (Point A.4) */}
-            <ul className="grid grid-cols-1 gap-3">
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Dinas Kominfo</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Dinas Kesehatan</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Dinas Pendidikan</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">BAPPEDA</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">BPPKAD</Link></li>
+            <ul className="flex flex-wrap gap-2">
+              {['Dinas Kominfo', 'Dinas Kesehatan', 'Dinas Pendidikan', 'BAPPEDA', 'BPPKAD'].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="inline-block px-3 py-2 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-all shadow-sm">
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           {/* Kecamatan */}
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Kecamatan</h4>
-            <ul className="grid grid-cols-1 gap-3">
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Kec. Banjarnegara</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Kec. Batur</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Kec. Pejawaran</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Kec. Wanadadi</Link></li>
-              <li><Link href="#" className="text-sm hover:text-primary-400 transition-colors">Selengkapnya &rarr;</Link></li>
+            <ul className="flex flex-wrap gap-2">
+              {['Kec. Banjarnegara', 'Kec. Batur', 'Kec. Pejawaran', 'Kec. Wanadadi', 'Selengkapnya \u2192'].map((item) => (
+                <li key={item}>
+                  <Link href="#" className="inline-block px-3 py-2 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-all shadow-sm">
+                    {item}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -70,9 +73,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-800 text-center text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="pt-8 border-t border-slate-800 text-center text-sm flex flex-col md:flex-row justify-between items-center gap-6">
           <p>&copy; {new Date().getFullYear()} Pemerintah Kabupaten Banjarnegara. All rights reserved.</p>
-          {/* FIX: Audio player mengambang dihilangkan / tidak disertakan (Point C.11) */}
+          
+          <div className="flex items-center gap-4 bg-slate-800/50 p-2 rounded-full border border-slate-700/50">
+            <span className="text-xs font-medium text-slate-400 pl-3">Radio Suara Banjarnegara</span>
+            <audio 
+              controls 
+              className="h-8 w-[200px] opacity-70 hover:opacity-100 transition-opacity grayscale contrast-125"
+              src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+              title="Radio Suara Banjarnegara"
+            >
+              Browser Anda tidak mendukung audio.
+            </audio>
+          </div>
         </div>
       </div>
     </footer>
