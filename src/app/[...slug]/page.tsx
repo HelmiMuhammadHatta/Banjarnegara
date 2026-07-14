@@ -57,7 +57,7 @@ export default function CatchAllPage({ params }: { params: { slug: string[] } })
           </div>
           <h2 className="text-2xl font-bold text-slate-800 mb-3">Halaman {pageTitle}</h2>
           <p className="text-slate-500 max-w-lg mb-8 leading-relaxed">
-            Ini adalah halaman <i>placeholder</i> untuk mendemonstrasikan navigasi submenu (seperti dropdown & accordion). 
+            Halaman ini sedang dalam pengembangan. Ini adalah <i>placeholder</i> untuk mendemonstrasikan navigasi submenu. 
             Pada implementasi aslinya, konten halaman ini akan dinamis dan terhubung dengan backend / CMS.
           </p>
           <Link 

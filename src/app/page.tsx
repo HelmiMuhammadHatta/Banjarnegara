@@ -93,16 +93,16 @@ export default function Home() {
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 lg:gap-6">
             {[
-              { title: 'LAPOR!', desc: 'Aspirasi & Pengaduan', icon: MessageCircle, color: 'text-red-500', bg: 'bg-red-50' },
-              { title: 'PPID', desc: 'Informasi Publik', icon: MonitorSmartphone, color: 'text-emerald-500', bg: 'bg-emerald-50' },
-              { title: 'Open Data', desc: 'Portal Data Terpadu', icon: Database, color: 'text-blue-500', bg: 'bg-blue-50' },
-              { title: 'LPSE', desc: 'Pengadaan Elektronik', icon: FileText, color: 'text-amber-500', bg: 'bg-amber-50' },
-              { title: 'JDIH', desc: 'Dokumentasi Hukum', icon: ShieldAlert, color: 'text-indigo-500', bg: 'bg-indigo-50' },
-              { title: 'Satu Data', desc: 'Integrasi Data Daerah', icon: Maximize, color: 'text-purple-500', bg: 'bg-purple-50' },
+              { title: 'LAPOR!', desc: 'Aspirasi & Pengaduan', href: 'https://lapor.go.id', icon: MessageCircle, color: 'text-red-500', bg: 'bg-red-50' },
+              { title: 'PPID', desc: 'Informasi Publik', href: '/pustaka-data/ppid', icon: MonitorSmartphone, color: 'text-emerald-500', bg: 'bg-emerald-50' },
+              { title: 'Open Data', desc: 'Portal Data Terpadu', href: '/pustaka-data/open-data', icon: Database, color: 'text-blue-500', bg: 'bg-blue-50' },
+              { title: 'LPSE', desc: 'Pengadaan Elektronik', href: '/pustaka-data/lpse', icon: FileText, color: 'text-amber-500', bg: 'bg-amber-50' },
+              { title: 'JDIH', desc: 'Dokumentasi Hukum', href: '/pustaka-data/jdih', icon: ShieldAlert, color: 'text-indigo-500', bg: 'bg-indigo-50' },
+              { title: 'Satu Data', desc: 'Integrasi Data Daerah', href: '/pustaka-data/satu-data', icon: Maximize, color: 'text-purple-500', bg: 'bg-purple-50' },
             ].map((srv, i) => {
               const Icon = srv.icon;
               return (
-                <Link key={i} href="#" className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group flex flex-col items-center text-center">
+                <Link key={i} href={srv.href} className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group flex flex-col items-center text-center">
                   <div className={`w-14 h-14 ${srv.bg} ${srv.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                     <Icon className="w-7 h-7" />
                   </div>
@@ -123,7 +123,7 @@ export default function Home() {
               <h2 className="text-3xl font-bold text-slate-800">Berita Terbaru</h2>
               <p className="text-slate-500 mt-2">Informasi terkini seputar Banjarnegara</p>
             </div>
-            <Link href="#" className="hidden sm:flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors">
+            <Link href="/info-banjarnegara/arsip-berita" className="hidden sm:flex items-center text-primary-600 font-medium hover:text-primary-700 transition-colors">
               Lihat Semua <ChevronRight className="w-5 h-5 ml-1" />
             </Link>
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
                   <p className="text-slate-600 text-sm mb-4 line-clamp-3 flex-grow">
                     {berita.excerpt}
                   </p>
-                  <Link href="#" className="text-primary-600 text-sm font-semibold flex items-center mt-auto hover:text-primary-800">
+                  <Link href={`/berita/${berita.id}`} className="text-primary-600 text-sm font-semibold flex items-center mt-auto hover:text-primary-800">
                     Baca Selengkapnya <ChevronRight className="w-4 h-4 ml-1" />
                   </Link>
                 </div>
@@ -163,7 +163,7 @@ export default function Home() {
           </div>
           
           <div className="mt-8 text-center sm:hidden">
-            <Link href="#" className="inline-flex items-center justify-center w-full px-6 py-3 border border-slate-300 rounded-lg text-slate-700 font-medium hover:bg-slate-50 transition-colors">
+            <Link href="/info-banjarnegara/arsip-berita" className="inline-flex items-center justify-center w-full px-6 py-3 border border-slate-300 rounded-lg text-slate-700 font-medium hover:bg-slate-50 transition-colors">
               Lihat Semua Berita
             </Link>
           </div>
@@ -183,7 +183,7 @@ export default function Home() {
               </h2>
               <div className="bg-slate-50 rounded-xl border border-slate-100 p-2 lg:p-4 flex flex-col gap-2">
                 {[1, 2, 3].map((item) => (
-                  <Link key={item} href="#" className="block p-4 hover:bg-white transition-colors rounded-lg border border-transparent hover:border-slate-200 hover:shadow-sm">
+                  <Link key={item} href={`/pengumuman/seleksi-cpns-2024-${item}`} className="block p-4 hover:bg-white transition-colors rounded-lg border border-transparent hover:border-slate-200 hover:shadow-sm">
                     <div className="flex gap-4">
                       <div className="hidden sm:flex flex-col items-center justify-center bg-white border border-slate-200 rounded-lg w-16 h-16 shrink-0 text-center shadow-sm">
                         <span className="text-lg font-bold text-primary-600 leading-none">1{item}</span>
@@ -199,7 +199,7 @@ export default function Home() {
                   </Link>
                 ))}
               </div>
-              <Link href="#" className="inline-block mt-4 text-primary-600 font-medium text-sm hover:underline">
+              <Link href="/pengumuman" className="inline-block mt-4 text-primary-600 font-medium text-sm hover:underline">
                 Lihat Pengumuman Lainnya &rarr;
               </Link>
             </div>
@@ -208,7 +208,7 @@ export default function Home() {
             <div>
               <h2 className="text-2xl font-bold text-slate-800 mb-6">Layanan Publik</h2>
               <div className="grid grid-cols-1 gap-4">
-                <Link href="#" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-primary-500 hover:shadow-md transition-all group">
+                <Link href="/pustaka-data/open-data" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-primary-500 hover:shadow-md transition-all group">
                   <div className="w-12 h-12 rounded-lg bg-primary-50 text-primary-600 flex items-center justify-center group-hover:bg-primary-600 group-hover:text-white transition-colors">
                     <Database className="w-6 h-6" />
                   </div>
@@ -217,7 +217,7 @@ export default function Home() {
                     <p className="text-xs text-slate-500">Portal Data Terpadu Banjarnegara</p>
                   </div>
                 </Link>
-                <Link href="#" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-500 hover:shadow-md transition-all group">
+                <Link href="/pustaka-data/ppid" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-emerald-500 hover:shadow-md transition-all group">
                   <div className="w-12 h-12 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                     <MonitorSmartphone className="w-6 h-6" />
                   </div>
@@ -226,7 +226,7 @@ export default function Home() {
                     <p className="text-xs text-slate-500">Informasi Publik Daerah</p>
                   </div>
                 </Link>
-                <Link href="#" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-amber-500 hover:shadow-md transition-all group">
+                <Link href="/pustaka-data/lpse" className="flex items-center gap-4 p-4 rounded-xl border border-slate-200 bg-white hover:border-amber-500 hover:shadow-md transition-all group">
                   <div className="w-12 h-12 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center group-hover:bg-amber-600 group-hover:text-white transition-colors">
                     <FileText className="w-6 h-6" />
                   </div>
@@ -264,7 +264,7 @@ export default function Home() {
             </div>
             
             <div className="relative z-10 w-full md:w-auto">
-              <Link href="#" className="block text-center w-full md:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors shadow-lg shadow-red-900/50 whitespace-nowrap">
+              <Link href="/info-banjarnegara/lawan-hoax" className="block text-center w-full md:w-auto px-8 py-4 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-colors shadow-lg shadow-red-900/50 whitespace-nowrap">
                 Cek Fakta Sekarang
               </Link>
             </div>

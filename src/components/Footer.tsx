@@ -29,13 +29,15 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Dinas & Badan</h4>
             <ul className="flex flex-wrap gap-2">
-              {['Dinas Kominfo', 'Dinas Kesehatan', 'Dinas Pendidikan', 'BAPPEDA', 'BPPKAD'].map((item) => (
+              {['Dinas Kominfo', 'Dinas Kesehatan', 'Dinas Pendidikan', 'BAPPEDA', 'BPPKAD'].map((item) => {
+                const url = `/pemerintahan/opd/${item.toLowerCase().replace(/ /g, '-')}`;
+                return (
                 <li key={item}>
-                  <Link href="#" className="inline-block px-3 py-2 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-all shadow-sm">
+                  <Link href={url} className="inline-block px-3 py-2 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-all shadow-sm">
                     {item}
                   </Link>
                 </li>
-              ))}
+              )})}
             </ul>
           </div>
 
@@ -43,13 +45,15 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Kecamatan</h4>
             <ul className="flex flex-wrap gap-2">
-              {['Kec. Banjarnegara', 'Kec. Batur', 'Kec. Pejawaran', 'Kec. Wanadadi', 'Selengkapnya \u2192'].map((item) => (
+              {['Kec. Banjarnegara', 'Kec. Batur', 'Kec. Pejawaran', 'Kec. Wanadadi', 'Selengkapnya \u2192'].map((item) => {
+                const url = item.includes('Selengkapnya') ? '/pemerintahan/letak-geografis' : `/kecamatan/${item.toLowerCase().replace(/ /g, '-').replace(/\./g, '')}`;
+                return (
                 <li key={item}>
-                  <Link href="#" className="inline-block px-3 py-2 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-all shadow-sm">
+                  <Link href={url} className="inline-block px-3 py-2 bg-slate-800 text-slate-300 text-xs font-medium rounded-md border border-slate-700 hover:bg-primary-600 hover:text-white hover:border-primary-500 transition-all shadow-sm">
                     {item}
                   </Link>
                 </li>
-              ))}
+              )})}
             </ul>
           </div>
 
@@ -57,16 +61,16 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold text-white mb-6">Sosial Media</h4>
             <div className="flex gap-4 mb-8">
-              <Link href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="Facebook">
+              <Link href="https://facebook.com/pemkabbanjarnegara" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="Facebook">
                 <Facebook className="w-5 h-5" />
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="Twitter">
+              <Link href="https://twitter.com/pemkabbanjarnegara" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="Twitter">
                 <Twitter className="w-5 h-5" />
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="Instagram">
+              <Link href="https://instagram.com/pemkabbanjarnegara" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="Instagram">
                 <Instagram className="w-5 h-5" />
               </Link>
-              <Link href="#" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="YouTube">
+              <Link href="https://youtube.com/pemkabbanjarnegara" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary-600 transition-colors text-white" aria-label="YouTube">
                 <Youtube className="w-5 h-5" />
               </Link>
             </div>

@@ -7,21 +7,8 @@ const easeOutExpo = (t: number): number => {
   return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
 };
 
-const Counter = ({ end, duration = 2000, suffix = "" }: { end: number, duration?: number, suffix?: string }) => {
+const Counter = ({ end, duration = 2000, suffix = "", isVisible }: { end: number, duration?: number, suffix?: string, isVisible: boolean }) => {
   const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (!isVisible) return;
@@ -46,10 +33,24 @@ const Counter = ({ end, duration = 2000, suffix = "" }: { end: number, duration?
     return () => cancelAnimationFrame(animationFrame);
   }, [isVisible, end, duration]);
 
-  return <div ref={ref}>{count.toLocaleString('id-ID')}{suffix}</div>;
+  return <span>{count.toLocaleString('id-ID')}{suffix}</span>;
 };
 
 export default function StatCounter() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
   const stats = [
     { label: 'Jumlah Penduduk', value: 896000, icon: Users, suffix: ' Jiwa' },
     { label: 'Jumlah Kecamatan', value: 20, icon: Map, suffix: '' },
@@ -58,7 +59,7 @@ export default function StatCounter() {
   ];
 
   return (
-    <section className="py-16 bg-primary-700 text-white relative overflow-hidden">
+    <section ref={ref} className="py-16 bg-primary-700 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-10">
@@ -74,7 +75,7 @@ export default function StatCounter() {
                   <Icon className="w-7 h-7 text-white" />
                 </div>
                 <div className="text-3xl md:text-4xl font-bold mb-2 flex justify-center tracking-tight">
-                  <Counter end={stat.value} suffix={stat.suffix} />
+                  <Counter end={stat.value} suffix={stat.suffix} isVisible={isVisible} />
                 </div>
                 <div className="text-sm md:text-base text-primary-100 font-medium">{stat.label}</div>
               </div>
