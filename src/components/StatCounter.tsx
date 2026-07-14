@@ -59,7 +59,7 @@ export default function StatCounter() {
   ];
 
   return (
-    <section ref={ref} className="py-16 bg-primary-700 text-white relative overflow-hidden">
+    <section ref={ref} className="py-16 bg-primary-900 text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-10">

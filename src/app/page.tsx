@@ -102,7 +102,7 @@ export default function Home() {
             ].map((srv, i) => {
               const Icon = srv.icon;
               return (
-                <Link key={i} href={srv.href} className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group flex flex-col items-center text-center">
+                <Link key={i} href={srv.href} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 group flex flex-col items-center text-center">
                   <div className={`w-14 h-14 ${srv.bg} ${srv.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                     <Icon className="w-7 h-7" />
                   </div>
