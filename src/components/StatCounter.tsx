@@ -63,8 +63,8 @@ export default function StatCounter() {
       <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply"></div>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-4">Statistik Daerah</h2>
-          <p className="text-primary-100 max-w-2xl mx-auto">Sekilas angka dan data ringkas mengenai wilayah Pemerintah Kabupaten Banjarnegara.</p>
+          <h2 className="text-3xl font-bold mb-4 text-white">Statistik Daerah</h2>
+          <p className="text-white/90 font-medium max-w-2xl mx-auto drop-shadow-sm">Sekilas angka dan data ringkas mengenai wilayah Pemerintah Kabupaten Banjarnegara.</p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
           {stats.map((stat, i) => {
@@ -74,15 +74,15 @@ export default function StatCounter() {
                 <div className="w-14 h-14 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4">
                   <Icon className="w-7 h-7 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl font-bold mb-2 flex justify-center tracking-tight">
+                <div className="text-3xl md:text-4xl font-bold mb-2 flex justify-center tracking-tight text-white drop-shadow-sm">
                   <Counter end={stat.value} suffix={stat.suffix} isVisible={isVisible} />
                 </div>
-                <div className="text-sm md:text-base text-primary-100 font-medium">{stat.label}</div>
+                <div className="text-sm md:text-base text-white/90 font-semibold drop-shadow-sm">{stat.label}</div>
               </div>
             );
           })}
         </div>
-        <p className="text-center text-xs text-primary-200 mt-8 italic">
+        <p className="text-center text-xs text-white/80 font-medium mt-8 italic drop-shadow-sm">
           * Data bersifat ilustratif untuk keperluan demo
         </p>
       </div>

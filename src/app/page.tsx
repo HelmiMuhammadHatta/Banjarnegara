@@ -256,8 +256,8 @@ export default function Home() {
                 <ShieldAlert className="w-8 h-8" />
               </div>
               <div className="max-w-2xl">
-                <h2 className="text-2xl md:text-3xl font-bold mb-3">Banjarnegara Lawan Hoaks!</h2>
-                <p className="text-slate-300 text-sm md:text-base leading-relaxed">
+                <h2 className="text-2xl md:text-3xl font-bold mb-3 text-white">Banjarnegara Lawan Hoaks!</h2>
+                <p className="text-slate-100 text-sm md:text-base leading-relaxed font-medium">
                   Jangan mudah percaya dengan informasi yang belum jelas kebenarannya. Saring sebelum sharing. Laporkan disinformasi dan berita bohong di sekitar Anda.
                 </p>
               </div>
