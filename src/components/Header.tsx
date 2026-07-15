@@ -246,7 +246,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -272,14 +272,14 @@ export default function Header() {
   return (
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/95 backdrop-blur-sm py-4 border-b border-slate-100/50'
+        isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-white py-5 lg:py-6 border-b border-slate-100/50'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 relative z-10">
-            <div className={`relative transition-all duration-300 ${isScrolled ? 'h-10 w-7' : 'h-12 w-8'}`}>
+            <div className={`relative transition-all duration-300 ${isScrolled ? 'h-9 w-7' : 'h-14 w-10'}`}>
               <Image 
                 src="/images/logo-banjarnegara.png"
                 alt="Logo Kabupaten Banjarnegara"
@@ -292,10 +292,10 @@ export default function Header() {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`font-bold text-slate-800 transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-xl'}`}>
+              <span className={`font-bold text-slate-800 transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-2xl'}`}>
                 BANJARNEGARA
               </span>
-              <span className="text-xs text-slate-500 font-medium hidden sm:block">
+              <span className={`text-slate-500 font-medium hidden sm:block transition-all duration-300 ${isScrolled ? 'text-[10px]' : 'text-xs'}`}>
                 Pemerintah Kabupaten
               </span>
             </div>
