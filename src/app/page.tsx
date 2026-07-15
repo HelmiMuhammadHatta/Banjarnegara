@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ChevronRight, Calendar, AlertTriangle, FileText, Database, ShieldAlert, MonitorSmartphone, MessageCircle, Maximize } from 'lucide-react';
+import { ChevronRight, Calendar, AlertTriangle, FileText, Database, ShieldAlert, MonitorSmartphone, MessageCircle, Maximize, Activity, Briefcase, Monitor, Globe, ShieldCheck } from 'lucide-react';
 import StatCounter from '@/components/StatCounter';
 
 const FALLBACK_IMAGE = "https://picsum.photos/seed/banjarnegara-fallback/800/600";
@@ -83,6 +83,29 @@ export default function Home() {
       {/* 1.5. Statistik Daerah */}
       <StatCounter />
 
+      {/* 1.6. Banner Transparansi PPID */}
+      <section className="bg-emerald-50 border-y border-emerald-100 py-5 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-l from-emerald-100/50 to-transparent"></div>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6 text-center md:text-left">
+            <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="w-12 h-12 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-600 flex items-center justify-center shrink-0 mx-auto md:mx-0">
+                <ShieldCheck className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="font-bold text-emerald-800 text-base md:text-lg mb-1">Komitmen Transparansi Informasi Publik</h3>
+                <p className="text-emerald-700 text-sm font-medium">
+                  Nilai 95,69 pada Tahap III Monev Keterbukaan Informasi Publik 2024 <span className="opacity-80 block md:inline mt-1 md:mt-0">(Komisi Informasi Provinsi Jawa Tengah)</span>
+                </p>
+              </div>
+            </div>
+            <Link href="/pustaka-data/ppid" className="whitespace-nowrap px-5 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-1 shadow-sm shrink-0 w-full md:w-auto">
+              Unduh Dokumen <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 1.75. Akses Cepat Layanan Publik */}
       <section className="py-16 bg-slate-100">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,6 +131,40 @@ export default function Home() {
                   </div>
                   <h3 className="font-bold text-slate-800 text-base mb-1 group-hover:text-primary-600 transition-colors">{srv.title}</h3>
                   <p className="text-slate-500 text-xs line-clamp-2">{srv.desc}</p>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* 1.8. Layanan Terintegrasi SPBE */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Layanan Terintegrasi SPBE</h2>
+            <p className="text-slate-500 max-w-3xl mx-auto">Kabupaten Banjarnegara terintegrasi dengan berbagai platform digital nasional dan daerah untuk mendukung tata kelola pemerintahan yang transparan dan akuntabel.</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            {[
+              { title: 'SP4N-LAPOR!', desc: 'Layanan Aspirasi dan Pengaduan Online Rakyat', href: 'https://lapor.go.id', icon: MessageCircle },
+              { title: 'JDIH', desc: 'Jaringan Dokumentasi dan Informasi Hukum', href: 'https://jdih.banjarnegarakab.go.id', icon: ShieldAlert },
+              { title: 'e-Kinerja', desc: 'Sistem Penilaian Kinerja Pegawai Terintegrasi', href: '#', icon: Activity },
+              { title: 'SiRUP', desc: 'Sistem Informasi Rencana Umum Pengadaan', href: '#', icon: Briefcase },
+              { title: 'SIPD', desc: 'Sistem Informasi Pemerintahan Daerah', href: '#', icon: Monitor },
+              { title: 'Satu Data Indonesia', desc: 'Portal Data Terpadu Terintegrasi', href: 'https://satudata.banjarnegarakab.go.id', icon: Database },
+            ].map((srv, i) => {
+              const Icon = srv.icon;
+              return (
+                <Link key={i} href={srv.href} target="_blank" rel="noopener noreferrer" className="bg-slate-50 rounded-xl p-5 border border-slate-100 shadow-sm hover:shadow-md hover:border-primary-200 transition-all group flex items-center gap-4">
+                  <div className={`w-12 h-12 bg-white border border-slate-100 text-slate-600 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:text-primary-600 transition-all`}>
+                    <Icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-slate-800 text-sm md:text-base mb-0.5 group-hover:text-primary-600 transition-colors">{srv.title}</h3>
+                    <p className="text-slate-500 text-xs line-clamp-2 leading-relaxed">{srv.desc}</p>
+                  </div>
                 </Link>
               );
             })}
@@ -235,6 +292,20 @@ export default function Home() {
                     <p className="text-xs text-slate-500">Layanan Pengadaan Secara Elektronik</p>
                   </div>
                 </Link>
+              </div>
+
+              {/* GPR Kominfo Widget Placeholder */}
+              <div className="mt-8">
+                <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+                  <Globe className="w-5 h-5 text-primary-600" />
+                  Berita Nasional
+                </h2>
+                <div className="bg-slate-50 border border-slate-200 border-dashed rounded-xl p-6 h-[300px] flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
+                  <Globe className="w-10 h-10 text-slate-300 mb-3" />
+                  <p className="text-slate-400 text-sm italic px-4 font-medium max-w-[200px]">
+                    [Ruang widget GPR Kominfo — akan diisi script resmi saat integrasi]
+                  </p>
+                </div>
               </div>
             </div>
 
