@@ -231,12 +231,12 @@ export default function Header() {
   const pathname = usePathname();
 
   const SEARCH_DATA = [
-    { title: "Pj Bupati Banjarnegara Buka Festival Budaya Dieng 2024", type: "Berita", href: "/berita/festival-dieng" },
-    { title: "Pemkab Salurkan Bantuan Air Bersih ke 5 Kecamatan Terdampak Kemarau", type: "Berita", href: "/berita/bantuan-air" },
-    { title: "Penghargaan Kabupaten Layak Anak Tingkat Madya Diraih Banjarnegara", type: "Prestasi", href: "/berita/layak-anak" },
-    { title: "Perbaikan Jalan Penghubung Antar Desa Selesai Tepat Waktu", type: "Infrastruktur", href: "/berita/perbaikan-jalan" },
-    { title: "Seleksi Penerimaan CPNS dan PPPK Kabupaten Banjarnegara Tahun 2024", type: "Pengumuman", href: "/pengumuman/cpns-2024" },
-    { title: "Jadwal Pemadaman Listrik Area Banjarnegara", type: "Layanan", href: "/layanan/listrik" },
+    { title: "Pj Bupati Banjarnegara Buka Festival Budaya Dieng 2024", type: "Berita", href: "/berita/1" },
+    { title: "Pemkab Salurkan Bantuan Air Bersih ke 5 Kecamatan Terdampak Kemarau", type: "Berita", href: "/berita/2" },
+    { title: "Penghargaan Kabupaten Layak Anak Tingkat Madya Diraih Banjarnegara", type: "Prestasi", href: "/berita/3" },
+    { title: "Perbaikan Jalan Penghubung Antar Desa Selesai Tepat Waktu", type: "Infrastruktur", href: "/berita/4" },
+    { title: "Seleksi Penerimaan CPNS dan PPPK Kabupaten Banjarnegara Tahun 2024", type: "Pengumuman", href: "/pengumuman/seleksi-cpns-2024-1" },
+    { title: "Jadwal Pemadaman Listrik Area Banjarnegara", type: "Layanan", href: "/info-banjarnegara/arsip-berita" },
   ];
 
   const searchResults = SEARCH_DATA.filter(item => 

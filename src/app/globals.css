@@ -17,15 +17,30 @@
 }
 
 .high-contrast {
-  filter: grayscale(100%) contrast(150%) !important;
-  background-color: white !important;
-  color: black !important;
+  background-color: #121212 !important;
+  color: #ffff00 !important;
+}
+
+.high-contrast * {
+  background-color: transparent !important;
+  color: inherit !important;
+  border-color: currentColor !important;
+}
+
+.high-contrast [class*="bg-"] {
+  background-color: #1a1a1a !important;
+}
+
+.high-contrast a,
+.high-contrast button {
+  color: #00ff00 !important;
+  text-decoration: underline !important;
 }
 
 .high-contrast img, 
 .high-contrast video, 
 .high-contrast [style*="background-image"] {
-  filter: grayscale(100%) contrast(80%) brightness(120%) !important;
+  filter: contrast(120%) brightness(110%) !important;
 }
 
 body {

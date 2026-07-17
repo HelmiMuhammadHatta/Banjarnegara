@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
 import { ChevronRight, Calendar, AlertTriangle, FileText, Database, ShieldAlert, MonitorSmartphone, MessageCircle, Maximize, Activity, Briefcase, Monitor, Globe, ShieldCheck } from 'lucide-react';
 import StatCounter from '@/components/StatCounter';
 
@@ -150,9 +151,9 @@ export default function Home() {
             {[
               { title: 'SP4N-LAPOR!', desc: 'Layanan Aspirasi dan Pengaduan Online Rakyat', href: 'https://lapor.go.id', icon: MessageCircle },
               { title: 'JDIH', desc: 'Jaringan Dokumentasi dan Informasi Hukum', href: 'https://jdih.banjarnegarakab.go.id', icon: ShieldAlert },
-              { title: 'e-Kinerja', desc: 'Sistem Penilaian Kinerja Pegawai Terintegrasi', href: '#', icon: Activity },
-              { title: 'SiRUP', desc: 'Sistem Informasi Rencana Umum Pengadaan', href: '#', icon: Briefcase },
-              { title: 'SIPD', desc: 'Sistem Informasi Pemerintahan Daerah', href: '#', icon: Monitor },
+              { title: 'e-Kinerja', desc: 'Sistem Penilaian Kinerja Pegawai Terintegrasi', href: 'https://kinerja.bkn.go.id/', icon: Activity },
+              { title: 'SiRUP', desc: 'Sistem Informasi Rencana Umum Pengadaan', href: 'https://sirup.lkpp.go.id/', icon: Briefcase },
+              { title: 'SIPD', desc: 'Sistem Informasi Pemerintahan Daerah', href: 'https://sipd.kemendagri.go.id/', icon: Monitor },
               { title: 'Satu Data Indonesia', desc: 'Portal Data Terpadu Terintegrasi', href: 'https://satudata.banjarnegarakab.go.id', icon: Database },
             ].map((srv, i) => {
               const Icon = srv.icon;
@@ -294,17 +295,17 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* GPR Kominfo Widget Placeholder */}
+              {/* GPR Kominfo Widget */}
               <div className="mt-8">
                 <h2 className="text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
                   <Globe className="w-5 h-5 text-primary-600" />
                   Berita Nasional
                 </h2>
-                <div className="bg-slate-50 border border-slate-200 border-dashed rounded-xl p-6 h-[300px] flex flex-col items-center justify-center text-center shadow-inner relative overflow-hidden">
-                  <Globe className="w-10 h-10 text-slate-300 mb-3" />
-                  <p className="text-slate-400 text-sm italic px-4 font-medium max-w-[200px]">
-                    [Ruang widget GPR Kominfo — akan diisi script resmi saat integrasi]
-                  </p>
+                <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 h-[300px] shadow-inner relative overflow-hidden">
+                  <div className="w-full h-full overflow-y-auto">
+                    <Script src="https://widget.kominfo.go.id/gpr-widget-kominfo.min.js" strategy="lazyOnload" />
+                    <div id="gpr-kominfo-widget-container"></div>
+                  </div>
                 </div>
               </div>
             </div>
