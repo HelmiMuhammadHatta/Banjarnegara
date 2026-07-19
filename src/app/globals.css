@@ -17,8 +17,8 @@
 }
 
 .high-contrast {
-  background-color: #121212 !important;
-  color: #ffff00 !important;
+  background-color: #0f172a !important; /* slate-900 */
+  color: #f8fafc !important; /* slate-50 */
 }
 
 .high-contrast * {
@@ -28,12 +28,12 @@
 }
 
 .high-contrast [class*="bg-"] {
-  background-color: #1a1a1a !important;
+  background-color: #1e293b !important; /* slate-800 */
 }
 
 .high-contrast a,
 .high-contrast button {
-  color: #00ff00 !important;
+  color: #38bdf8 !important; /* sky-400 */
   text-decoration: underline !important;
 }
 
