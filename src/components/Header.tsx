@@ -278,8 +278,8 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 relative z-10">
-            <div className={`relative transition-all duration-300 ${isScrolled ? 'h-9 w-7' : 'h-14 w-10'}`}>
+          <Link href="/" className="flex items-center gap-2 xl:gap-3 relative z-10 whitespace-nowrap">
+            <div className={`relative transition-all duration-300 ${isScrolled ? 'h-8 w-6 xl:h-9 xl:w-7' : 'h-12 w-9 xl:h-14 xl:w-10'}`}>
               <Image 
                 src="/images/logo-banjarnegara.png"
                 alt="Logo Kabupaten Banjarnegara"
@@ -292,7 +292,7 @@ export default function Header() {
               />
             </div>
             <div className="flex flex-col">
-              <span className={`font-bold text-slate-800 transition-all duration-300 ${isScrolled ? 'text-lg' : 'text-2xl'}`}>
+              <span className={`font-bold text-slate-800 transition-all duration-300 ${isScrolled ? 'text-sm xl:text-base' : 'text-lg xl:text-xl'}`}>
                 BANJARNEGARA
               </span>
               <span className={`text-slate-500 font-medium hidden sm:block transition-all duration-300 ${isScrolled ? 'text-[10px]' : 'text-xs'}`}>
@@ -302,13 +302,13 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-6">
-            <ul className="flex gap-6 text-sm text-slate-600">
+          <nav className="hidden lg:flex items-center gap-3 xl:gap-6">
+            <ul className="flex gap-3 xl:gap-6 text-[13px] xl:text-sm text-slate-600 whitespace-nowrap">
               {navLinks.map((link) => (
                 <DesktopMenuItem key={link.name} item={link} />
               ))}
             </ul>
-            <div className="relative ml-4">
+            <div className="relative ml-2 xl:ml-4">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 z-10" />
               <input 
                 type="text" 
@@ -320,7 +320,7 @@ export default function Header() {
                 }}
                 onFocus={() => setShowSearchResults(true)}
                 onBlur={() => setTimeout(() => setShowSearchResults(false), 200)}
-                className="pl-9 pr-4 py-2 rounded-full bg-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 w-48 focus:w-64 transition-all focus:bg-white focus:shadow-sm relative z-10"
+                className="pl-9 pr-4 py-2 rounded-full bg-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 w-36 xl:w-48 focus:w-48 xl:focus:w-64 transition-all focus:bg-white focus:shadow-sm relative z-10"
               />
               {/* Dropdown Hasil Pencarian Desktop */}
               {showSearchResults && searchQuery.length > 0 && (
